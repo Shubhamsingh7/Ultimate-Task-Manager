@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# Ultimate Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Simple task manager web app where user can add, delete and update task.
+2. Task have properties like title,description,due date,priority and done status.
+3. User can sort the list by due date and apply filter for done status,priority.
+4. User can search using title and description.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+- Node.js version 20.12.0
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. run `npm start`.
+4. app will be live on `http://localhost:3000/`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+1. All the task list are being shown in home page.
+2. To add a new task click on button `Add New Task`.
+3. It will redirect to add task page.
+4. User Can edit task by clicking on card edit button.
+5. User can delete task by clicking delete button on card.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## External Libraries Used
 
-### `npm run build`
+- [UUID](https://www.npmjs.com/package/uuid)
+- [React Toastify](https://www.npmjs.com/package/react-toastify)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [Yup](https://www.npmjs.com/package/yup)
+- [React Hook Form](https://www.npmjs.com/package/react-hook-form)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Information
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. All the data is geting stored in local storage.
+2. yup library is being used for form validation.
+3. React Hook Form is being used for form handling.
+4. React Toastify is used to show toast on successfull delete,add and edit task.
+5. UUID is used to generate unique id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+# atoms
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. atoms folder have all the reusable html components like text input and select input.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   # molecules folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   1. FilterContainer have all the code of filter components
+   2. taskEditor have task add and edit form code using reusable components.
+   3. Task card have code to show task card in list
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   # pages
 
-## Learn More
+   1. AddTask page
+   2. EditTask page
+   3. TaskList of home page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Types
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+containes all the type,enum and interfaces used in project
+
+# utils
+
+1. contains utility function like function to get and set local storage data.
+2. contains yup schema for form validation
+3. constains constant data
