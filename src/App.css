@@ -137,6 +137,23 @@ label {
   
 }
 
+
+.title span{
+background-color: yellow;
+}
+
+.description span{
+  background-color: yellow;
+  }
+
+  .days_chip{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+  display:inline-block;
+  margin-bottom: 10px;
+  }
+
 @media only screen and (max-width: 600px) {
   .task-container {
     grid-template-columns: 1fr;

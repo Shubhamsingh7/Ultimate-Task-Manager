@@ -41,12 +41,38 @@ function TaskList() {
     if (!tempList.current) {
       return;
     }
-    const filterdList = tempList?.current?.filter((item: any) => {
-      const { title, description } = item;
-      if (title.includes(searchText) || description.includes(searchText)) {
-        return item;
-      }
-    });
+    const filterdList = tempList?.current
+      ?.filter((item: any) => {
+        const { title, description } = item;
+        if (title.includes(searchText) || description.includes(searchText)) {
+          return item;
+        }
+      })
+      .map((item) => {
+        const { title, description } = item;
+        if (!searchText) {
+          return item;
+        }
+        if (title.includes(searchText)) {
+          const temp = {
+            ...item,
+            title: title.replaceAll(searchText, `<span>${searchText}</span>`),
+          };
+          return temp;
+        } else if (description.includes(searchText)) {
+          const temp = {
+            ...item,
+            description: description.replaceAll(
+              searchText,
+              `<span>${searchText}</span>`
+            ),
+          };
+
+          return temp;
+        } else {
+          return item;
+        }
+      });
 
     settaskList(filterdList);
   };
@@ -106,6 +132,8 @@ function TaskList() {
   const handleClearFilter = () => {
     settaskList(tempList.current);
   };
+
+  console.log(taskList);
 
   return (
     <section>

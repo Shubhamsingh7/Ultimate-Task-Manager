@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { TaskCardType } from "../Types/Type";
+import DueDate from "../atoms/DueDate";
 
 function TaskCard(props: TaskCardType) {
   const navigate = useNavigate();
@@ -15,8 +16,18 @@ function TaskCard(props: TaskCardType) {
 
   return (
     <div className={`task-card ${hasMarkedDone ? "task-completed" : ""}`}>
-      <h4 className="title">{title}</h4>
-      <p className="description">{description}</p>
+      <h4
+        className="title"
+        dangerouslySetInnerHTML={{
+          __html: title,
+        }}
+      />
+      <p
+        className="description"
+        dangerouslySetInnerHTML={{
+          __html: description,
+        }}
+      />
       <div className="info-wrapper">
         <div className="data-card">
           Due Date: {new Date(dueDate).toISOString().split("T")[0]}
@@ -30,6 +41,9 @@ function TaskCard(props: TaskCardType) {
             {hasMarkedDone ? "Done" : "Pending"}
           </span>
         </h4>
+      </div>
+      <div>
+        <DueDate date={dueDate} />
       </div>
       <div className="action-container">
         <button
